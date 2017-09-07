@@ -15,7 +15,6 @@ data['cust_id']=data['cust_id'].apply(lambda x: str(x))
 # http://127.0.0.1:5000/count/cust_id,cust_segment,market/cust_id
 # {"yr": 2001, "mk": "APAC", "id": "0", "sg": "Network", "ms": 100.0, "ic": 100.0, "gd": 100.0, "dt": "2001-4-01"}
 
-
 tempdf = pd.DataFrame(data)
 tempdf['date'] = tempdf[['year', 'month', 'market','cust_id','cust_segment','comp_mscore', 'ic_net_score', 'gdi_net_score', 'cc_count_as_zside', 'cc_count_as_aside', 'net_ibx_presence', 'net_metro_presence']].apply(lambda x : '{}-{}-01'.format(x[0],x[1]), axis=1)
 tempdf = tempdf.drop(['month', 'cc_count_as_zside', 'cc_count_as_aside', 'net_ibx_presence', 'net_metro_presence'], axis=1)
